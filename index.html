@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Styling Assignment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    legend {
+      font-weight: bold;
+    }
+
+    @media (min-width: 650px) {
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .form-group,
+      fieldset,
+      .full-width {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form action="results.php" method="get">
+    <div class="form-group">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="favcolor">Favorite Color:</label>
+      <input list="colors" id="favcolor" name="favcolor">
+      <datalist id="colors">
+        <option value="Red">
+        <option value="Green">
+        <option value="Blue">
+        <option value="Purple">
+      </datalist>
+    </div>
+
+    <fieldset>
+      <legend>Choose Your Preferred Contact Method:</legend>
+      <label><input type="radio" name="contact" value="email"> Email</label>
+      <label><input type="radio" name="contact" value="phone"> Phone</label>
+      <label><input type="radio" name="contact" value="text"> Text</label>
+      <label><input type="radio" name="contact" value="none"> Do not contact</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Select Your Interests:</legend>
+      <label><input type="checkbox" name="interests[]" value="technology"> Technology</label>
+      <label><input type="checkbox" name="interests[]" value="sports"> Sports</label>
+      <label><input type="checkbox" name="interests[]" value="music"> Music</label>
+      <label><input type="checkbox" name="interests[]" value="travel"> Travel</label>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="location">Choose a Location:</label>
+      <select id="location" name="location">
+        <option value="newyork">New York</option>
+        <option value="losangeles">Los Angeles</option>
+        <option value="chicago">Chicago</option>
+        <option value="miami">Miami</option>
+      </select>
+    </div>
+
+    <div class="form-group full-width">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+</html>
